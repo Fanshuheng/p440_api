@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/UWB_.dir/rcm.c.o CMakeFiles/UWB_.dir/rcmIf.c.o CMakeFiles/UWB_.dir/rcmSampleApp.c.o CMakeFiles/UWB_.dir/BIRL_UWB.cpp.o CMakeFiles/UWB_.dir/main.cpp.o  -o UWB_ 

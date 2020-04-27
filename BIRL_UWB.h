@@ -23,6 +23,7 @@
 #include "hostInterfaceRCM.h"
 
 #include "Command.h"
+#include "usb.h"
 
 ///necessary localization data
 struct LocationInfo{
@@ -72,27 +73,24 @@ public:
 
     const int OK = 0, ERR = -1, DEFAULT_TIMEOUT_MS = 500;
 
-    unsigned int messageId = 0;
-
     ///interface
-    static std::shared_ptr<BIRL_UWB> CreateUWB(){
-        if(instance_ == nullptr)
-            instance_ = std::shared_ptr<BIRL_UWB>(new BIRL_UWB());
-        return instance_;
+    BIRL_UWB(char* dev){
+        usb_ = usb_->CreateUSB();
+        Open(dev);
     }
 
     ~BIRL_UWB(){
-        if(radioFd != 0)rcmIfClose();
+        if(usb_->IsAvailable())usb_->rcmIfClose();
     }
 
     void SetThisID(int id){this_node_id_ = id;}
 
     int GetThisID(){return this_node_id_;}
 
-    bool IsAvailable(){ return isAvailable_; }  //true:the node is opened; false:the node is not opened
+    bool IsAvailable(){return isAvailable_;}  //true:the node is opened; false:the node is not opened
 
     bool Open(char* dev){
-        return rcmIfInit(dev)==OK;
+        return usb_->rcmIfInit(dev)==OK;
     }
 
     /*************************************************
@@ -184,29 +182,8 @@ public:
     int getRange(unsigned id);
 
 private:
-    BIRL_UWB() = default;
 
-    int rcmIfInit(char* destAddr);
-
-    void rcmIfClose(void);
-
-    int rcmIfSendPacket(void *pkt, unsigned size);
-
-    int rcmIfGetPacket(void *pkt, unsigned maxSize);
-
-    int rcmIfGetPacketSerial(void *pkt, unsigned maxSize);
-
-    int rcmIfSendPacketSerial(void *pkt, unsigned size);
-
-    void rcmIfFlush(void);
-
-    int serTimedRead(void *buf, int cnt);
-
-    int serWrite(void *buf, int cnt);
-
-    unsigned short crc16(void *ptr, int len);
-
-    int radioFd{};
+    int radioFd;
 
     int timeoutMs = DEFAULT_TIMEOUT_MS;
 
@@ -214,9 +191,11 @@ private:
 
     bool isAvailable_ = false;  //If this node is available(init successfully)
 
-    static std::shared_ptr<BIRL_UWB> instance_;  //for singleton pattern
+    unsigned int messageId = 0;
 
-    static const unsigned short crc16_tab[32*8];
+    std::shared_ptr<USB> usb_;
+#endif
+
 };
 
 #endif //UWB_BIRL_UWB_H

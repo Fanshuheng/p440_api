@@ -1,4 +1,4 @@
-/home/ch/Downloads/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/ch/P440/example
+"D:\FOR_SOFTWARE\CLion\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" E:\MyThing\MyThings\BIRL\BIRL_UWB\API\p440_api
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/ch/P440/example/cmake-build-debug
+-- Build files have been written to: E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug

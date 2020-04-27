@@ -8,161 +8,159 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="UWB">
-				<Option output="/home/ch/P440/example/cmake-build-debug/UWB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/ch/P440/example"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="UWB/fast">
-				<Option output="/home/ch/P440/example/cmake-build-debug/UWB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/ch/P440/example"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UWB">
+				<Option output="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/UWB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="UWB/fast">
+				<Option output="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/UWB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB/fast"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UWB_config">
-				<Option output="/home/ch/P440/example/cmake-build-debug/UWB_config" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
+				<Option output="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/UWB_config.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/ch/P440/example"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB_config"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB_config"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UWB_config/fast">
-				<Option output="/home/ch/P440/example/cmake-build-debug/UWB_config" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ch/P440/example/cmake-build-debug"/>
+				<Option output="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/UWB_config.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/ch/P440/example"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
+					<Add directory="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB_config/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ch/P440/example/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 UWB_config/fast"/>
+					<CompileFile command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/FOR_SOFTWARE/CLion/x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0/mingw64/bin/mingw32-make.exe -f &quot;E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ch/P440/example/BIRL_UWB.cpp">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/BIRL_UWB.cpp">
 			<Option target="UWB"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/BIRL_UWB.h">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/BIRL_UWB.h">
 			<Option target="UWB"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/main.cpp">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/main.cpp">
 			<Option target="UWB"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/rcm.c">
-			<Option target="UWB"/>
-			<Option target="UWB_config"/>
-		</Unit>
-		<Unit filename="/home/ch/P440/example/rcm.h">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcm.c">
 			<Option target="UWB"/>
 			<Option target="UWB_config"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/rcmIf.c">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcm.h">
 			<Option target="UWB"/>
 			<Option target="UWB_config"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/rcmIf.h">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcmIf.c">
 			<Option target="UWB"/>
 			<Option target="UWB_config"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/rcmSampleApp.c">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcmIf.h">
+			<Option target="UWB"/>
 			<Option target="UWB_config"/>
 		</Unit>
-		<Unit filename="/home/ch/P440/example/CMakeLists.txt">
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcmSampleApp.c">
+			<Option target="UWB_config"/>
+		</Unit>
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/usb.cpp">
+			<Option target="UWB_config"/>
+		</Unit>
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/usb.h">
+			<Option target="UWB_config"/>
+		</Unit>
+		<Unit filename="E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

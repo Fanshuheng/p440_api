@@ -1,17 +1,27 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
   "C"
+  "CXX"
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ch/P440/example/rcm.c" "/home/ch/P440/example/cmake-build-debug/CMakeFiles/UWB_config.dir/rcm.c.o"
-  "/home/ch/P440/example/rcmIf.c" "/home/ch/P440/example/cmake-build-debug/CMakeFiles/UWB_config.dir/rcmIf.c.o"
-  "/home/ch/P440/example/rcmSampleApp.c" "/home/ch/P440/example/cmake-build-debug/CMakeFiles/UWB_config.dir/rcmSampleApp.c.o"
+  "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcm.c" "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/CMakeFiles/UWB_config.dir/rcm.c.obj"
+  "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcmIf.c" "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/CMakeFiles/UWB_config.dir/rcmIf.c.obj"
+  "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/rcmSampleApp.c" "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/CMakeFiles/UWB_config.dir/rcmSampleApp.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../"
+  )
+set(CMAKE_DEPENDS_CHECK_CXX
+  "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/usb.cpp" "E:/MyThing/MyThings/BIRL/BIRL_UWB/API/p440_api/cmake-build-debug/CMakeFiles/UWB_config.dir/usb.cpp.obj"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../"
   )
 
