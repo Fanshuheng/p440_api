@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/UWB_config.dir/rcm.c.o CMakeFiles/UWB_config.dir/rcmIf.c.o CMakeFiles/UWB_config.dir/rcmSampleApp.c.o  -o UWB_config 
