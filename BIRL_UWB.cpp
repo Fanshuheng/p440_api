@@ -316,3 +316,48 @@ int BIRL_UWB::getRange(unsigned id) {
     messageId++;
     return -1;
 }
+
+bool BIRL_UWB::getLocationConfig(LocationConfigInfo& info) {
+    static UWBcommands::RequestLocationGetConfig request;
+    static UWBcommands::ConfirmLocationGetConfig confirm;
+    bool isOK = false;
+    int numBytes;
+
+    request.msgType = htons(LOC_GET_CONFIG_REQUEST);
+    request.msgId =  htons(messageId);
+
+    // make sure no pending messages
+    usb_->rcmIfFlush();
+    usb_->rcmIfSendPacket(&request, sizeof(request));
+    numBytes = usb_->rcmIfGetPacket(&confirm, sizeof(confirm));
+
+    //check if what i get is what i want to get
+    if (numBytes == sizeof(confirm))
+    {
+        // Handle byte ordering
+        confirm.msgType = ntohs(confirm.msgType);
+        confirm.flag = ntohs(confirm.flag);
+        confirm.bootMode = confirm.bootMode;
+        confirm.solverMaxREE = ntohs(confirm.solverMaxREE);
+        confirm.solverMaxGDOP = ntohs(confirm.solverMaxGDOP);
+        confirm.kalmanSigmaAccel = ntohs(confirm.kalmanSigmaAccel);
+        confirm.timeStamp = ntohl(confirm.timeStamp);
+        confirm.status = ntohl(confirm.status);
+
+        // is this the correct message type and is status good?
+        if (confirm.msgType == LOC_GET_CONFIG_CONFIRM &&
+            confirm.status == OK){
+            info.status = confirm.status;
+            info.timeStamp = confirm.timeStamp;
+            info.kalmanSigmaAccel = confirm.kalmanSigmaAccel;
+            info.solverGDOP = confirm.solverMaxGDOP;
+            info.solverMaxREE = confirm.solverMaxREE;
+            info.bootMode = confirm.bootMode;
+            info.flag = confirm.flag;
+            isOK = true;
+        }
+
+    }
+    return isOK;
+
+}

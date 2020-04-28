@@ -4,7 +4,6 @@
 #include "BIRL_UWB.h"
 #include <iostream>
 #include <string>
-#include "rcm.h"
 #define DEBUG
 
 void usage(void)
@@ -22,8 +21,10 @@ void usage(void)
 
 int main(int argc, char *argv[]) {
 #ifdef DEBUG
-    std::shared_ptr<BIRL_UWB> uwb = BIRL_UWB::CreateUWB();
     char dev[] = "/dev/ttyACM0";
+
+    std::shared_ptr<BIRL_UWB> uwb(new BIRL_UWB(dev));
+
     uwb->Open(dev);
 #else
     // check command line arguments
@@ -42,6 +43,7 @@ int main(int argc, char *argv[]) {
 
 
     static LocationInfo location_data;
+    static LocationConfigInfo location_config_info;
     int command;
     while(command!=-1){
 
@@ -51,6 +53,7 @@ int main(int argc, char *argv[]) {
         std::cout << "3.set ranging mode.\n";
         std::cout << "4.set idle mode.\n";
         std::cout << "5.set tracking mode.\n";
+        std::cout << "6.get location config.\n";
         std::cout << "-1.quit\n";
 
         std::cin >> command;
@@ -96,6 +99,18 @@ int main(int argc, char *argv[]) {
                     std::cout << "Fail to set tracking mode.\n";
                 }else{
                     std::cout << "Tracking mode OK.\n";
+                }
+                break;
+            }
+            case 6:{
+                if(!uwb->getLocationConfig(location_config_info)){
+                    std::cout << "Fail to get location mode.\n";
+                }else{
+                    std::cout << "Status: " << location_config_info.status << "\n";
+                    std::cout << "Timestamp: " << location_config_info.timeStamp << "\n";
+                    std::cout << "Flag: " << location_config_info.flag << "\n";
+                    std::cout << "Boot Mode: " << location_config_info.bootMode << "\n";
+                    std::cout << "GDOP Anchor History Depth: " << location_config_info.GDOPAnchorHistoryDepth << "\n";
                 }
                 break;
             }

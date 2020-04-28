@@ -1,11 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
-project(UWB)
+project(p440_api)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(
-        ${PROJECT_SOURCE_DIR}
-)
-add_executable(${PROJECT_NAME} rcm.c rcmIf.c  BIRL_UWB.cpp main.cpp )
+include_directories(.)
 
-add_executable(${PROJECT_NAME}_config rcm.c rcmIf.c rcmSampleApp.c usb.cpp )
+add_executable(p440_api
+        BIRL_UWB.cpp
+        BIRL_UWB.h
+        CMakeLists.txt
+        Command.h
+        hostInterfaceCommon.h
+        hostInterfaceRCM.h
+        main.cpp
+        usb.cpp
+        usb.h)

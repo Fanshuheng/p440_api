@@ -21,48 +21,12 @@
 
 #include "hostInterfaceCommon.h"
 #include "hostInterfaceRCM.h"
+#include "LocationInfo.h"
 
 #include "Command.h"
 #include "usb.h"
 
-///necessary localization data
-struct LocationInfo{
 
-    rcm_uint32_t node_ID;  //ID of node sending this info
-
-    rcm_uint32_t time_stamp;
-
-    rcm_int32_t x;
-
-    rcm_int32_t y;
-
-    rcm_int32_t z;
-};
-
-struct LocationInfoEX{
-
-    rcm_uint32_t node_ID;  //ID of node sending this info
-
-    rcm_uint32_t time_stamp;
-
-    rcm_int32_t x;
-
-    rcm_int32_t y;
-
-    rcm_int32_t z;
-
-    rcm_uint16_t x_variance;
-
-    rcm_uint16_t y_variance;
-
-    rcm_uint16_t z_variance;
-
-    rcm_int16_t x_y_cov;
-
-    rcm_int16_t x_z_cov;
-
-    rcm_int16_t y_z_cov;
-};
 
 class BIRL_UWB {
 public:
@@ -87,7 +51,7 @@ public:
 
     int GetThisID(){return this_node_id_;}
 
-    bool IsAvailable(){return isAvailable_;}  //true:the node is opened; false:the node is not opened
+    bool IsAvailable(){return usb_->IsAvailable();}  //true:the node is opened; false:the node is not opened
 
     bool Open(char* dev){
         return usb_->rcmIfInit(dev)==OK;
@@ -103,6 +67,28 @@ public:
     Others: None
     *************************************************/
     bool setRangingMode();
+
+    /*************************************************
+    Function:     getLocationConfig
+    Description:  获取定位模式的配置
+    Input:  None
+    Output: None
+    Return: true:获取成功
+            false:获取失败
+    Others: None
+    *************************************************/
+    bool getLocationConfig(LocationConfigInfo&);
+
+//    /*************************************************
+//    Function:     getLocationMapConfig
+//    Description:  获取定位地图的配置
+//    Input:  None
+//    Output: None
+//    Return: true:获取成功
+//            false:获取失败
+//    Others: None
+//    *************************************************/
+//    bool getLocationMapConfig(LocationConfigInfo&);
 
     /*************************************************
     Function:     setLocationTrackingMode
@@ -189,12 +175,9 @@ private:
 
     int this_node_id_;  //ID of this UWB node, -1 for none. Call setThisID to modify it.
 
-    bool isAvailable_ = false;  //If this node is available(init successfully)
-
     unsigned int messageId = 0;
 
     std::shared_ptr<USB> usb_;
-#endif
 
 };
 

@@ -40,6 +40,7 @@ typedef union
 } infoMsgs_t;
 /***************  commands  ***************/
 namespace UWBcommands{
+
     ///location part
     struct RequestLocationSetConfig{
 
@@ -78,6 +79,7 @@ namespace UWBcommands{
     };
 
     struct ConfirmLocationSetConfig{
+
         rcm_uint16_t msgType = LOC_SET_CONFIG_CONFIRM;
 
         rcm_uint16_t msgId;
@@ -85,7 +87,50 @@ namespace UWBcommands{
         rcm_uint32_t status;
     };
 
+    struct RequestLocationGetConfig{
+
+        rcm_uint16_t msgType = LOC_GET_CONFIG_REQUEST;
+
+        rcm_uint16_t msgId;
+
+    };
+
+    struct ConfirmLocationGetConfig{
+
+        rcm_uint16_t msgType = LOC_GET_CONFIG_CONFIRM;
+
+        rcm_uint16_t msgId;
+
+        rcm_uint16_t flag;
+
+        rcm_uint8_t bootMode;
+
+        rcm_uint8_t reserve4 = 0;
+
+        rcm_uint16_t reserve5 = 0;
+
+        rcm_uint16_t solverMaxREE = 100;
+
+        rcm_uint16_t solverMaxGDOP = 400;
+
+        rcm_uint8_t GDOPAnchorHistoryDepth = 4;
+
+        rcm_uint8_t solverNLSToKalmanUpdates = 4;
+
+        rcm_uint16_t kalmanSigmaAccel = 0;
+
+        rcm_uint8_t NLSSolverOutputBoxcarFilterDepth = 4;
+
+        rcm_uint8_t reserve12 = 0;
+
+        rcm_uint32_t timeStamp;
+
+        rcm_uint32_t status;
+
+    };
+
     struct RequestLocationSetMode{
+
         rcm_uint16_t msgType = LOC_SET_MODE_REQUEST;
 
         rcm_uint16_t msgId;
@@ -98,6 +143,7 @@ namespace UWBcommands{
     };
 
     struct ConfirmLocationSetMode{
+
         rcm_uint16_t msgType = LOC_SET_MODE_CONFIRM;
 
         rcm_uint16_t msgId;
@@ -112,12 +158,14 @@ namespace UWBcommands{
     };
 
     struct RequestLocationGetMode{
+
         rcm_uint16_t msgType = LOC_GET_MODE_REQUEST;
 
         rcm_uint16_t msgId;
     };
 
     struct ConfirmLocationGetMode{
+
         rcm_uint16_t msgType = LOC_GET_MODE_CONFIRM;
 
         rcm_uint16_t msgId;
@@ -130,65 +178,67 @@ namespace UWBcommands{
     };
 
     struct InfoLocationEchoed{
-            rcm_uint16_t msgType = LOC_ECHOED_LOCATION_INFO;
 
-            rcm_uint16_t msgId;
+        rcm_uint16_t msgType = LOC_ECHOED_LOCATION_INFO;
 
-            rcm_uint32_t nodeID;
+        rcm_uint16_t msgId;
 
-            rcm_uint32_t remoteTimestamp;
+        rcm_uint32_t nodeID;
 
-            rcm_int32_t x;
+        rcm_uint32_t remoteTimestamp;
 
-            rcm_int32_t y;
+        rcm_int32_t x;
 
-            rcm_int32_t z;
+        rcm_int32_t y;
 
-            rcm_uint16_t GDOP;
+        rcm_int32_t z;
 
-            rcm_uint8_t solverStage;
+        rcm_uint16_t GDOP;
 
-            rcm_uint8_t solverErrorCode;
+        rcm_uint8_t solverStage;
+
+        rcm_uint8_t solverErrorCode;
     };
 
     struct InfoLocationEchoedEx{
-            rcm_uint16_t msgType = LOC_ECHOED_LOCATION_EX_INFO;
 
-            rcm_uint16_t msgId;
+        rcm_uint16_t msgType = LOC_ECHOED_LOCATION_EX_INFO;
 
-            rcm_uint32_t nodeID;
+        rcm_uint16_t msgId;
 
-            rcm_uint8_t nodeTYpe;
+        rcm_uint32_t nodeID;
 
-            rcm_uint8_t solverStage;
+        rcm_uint8_t nodeTYpe;
 
-            rcm_uint8_t solverErrorCode;
+        rcm_uint8_t solverStage;
 
-            rcm_uint8_t reserved6;
+        rcm_uint8_t solverErrorCode;
 
-            rcm_uint16_t reserved7;
+        rcm_uint8_t reserved6;
 
-            rcm_uint16_t GDOP;
+        rcm_uint16_t reserved7;
 
-            rcm_uint32_t timeStamp;
+        rcm_uint16_t GDOP;
 
-            rcm_int32_t x;
+        rcm_uint32_t timeStamp;
 
-            rcm_int32_t y;
+        rcm_int32_t x;
 
-            rcm_int32_t z;
+        rcm_int32_t y;
 
-            rcm_uint16_t x_variance;
+        rcm_int32_t z;
 
-            rcm_uint16_t y_variance;
+        rcm_uint16_t x_variance;
 
-            rcm_uint16_t z_variance;
+        rcm_uint16_t y_variance;
 
-            rcm_int16_t x_y_cov;
+        rcm_uint16_t z_variance;
 
-            rcm_int16_t x_z_cov;
+        rcm_int16_t x_y_cov;
 
-            rcm_int16_t y_z_cov;
+        rcm_int16_t x_z_cov;
+
+        rcm_int16_t y_z_cov;
     };
 
     ///RCM part

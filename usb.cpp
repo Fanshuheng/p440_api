@@ -2,7 +2,7 @@
 // Created by ch on 20-4-22.
 //
 
-#include "USB.h"
+#include "usb.h"
 
 std::shared_ptr<USB> USB::instance_ = nullptr;
 

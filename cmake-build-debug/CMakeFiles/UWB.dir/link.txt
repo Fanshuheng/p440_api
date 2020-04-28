@@ -1,3 +1,0 @@
-"D:\FOR_SOFTWARE\CLion\CLion 2019.3.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\UWB.dir/objects.a
-D:\FOR_SOFTWARE\CLion\x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0\mingw64\bin\ar.exe cr CMakeFiles\UWB.dir/objects.a @CMakeFiles\UWB.dir\objects1.rsp
-D:\FOR_SOFTWARE\CLion\x86_64-8.1.0-release-posix-sjlj-rt_v6-rev0\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\UWB.dir/objects.a -Wl,--no-whole-archive  -o UWB.exe -Wl,--out-implib,libUWB.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\UWB.dir\linklibs.rsp
