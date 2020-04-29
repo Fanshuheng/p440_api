@@ -33,6 +33,8 @@ fcntl.h
 -
 termios.h
 -
+vector
+-
 hostInterfaceCommon.h
 /home/ch/P440/example/p440_api/hostInterfaceCommon.h
 hostInterfaceRCM.h
@@ -60,6 +62,12 @@ BIRL_UWB.h
 iostream
 -
 string
+-
+vector
+-
+fstream
+-
+sstream
 -
 
 /home/ch/P440/example/p440_api/usb.h

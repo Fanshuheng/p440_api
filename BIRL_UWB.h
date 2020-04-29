@@ -18,6 +18,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <termios.h>
+#include <vector>
 
 #include "hostInterfaceCommon.h"
 #include "hostInterfaceRCM.h"
@@ -31,7 +32,7 @@
 class BIRL_UWB {
 public:
     ///data type
-    enum rcmIfType {rcmIfIp, rcmIfSerial, rcmIfUsb};
+    enum opMode {RANGING = 0, LOCATION = 6};
 
     enum locationModeType {IDLE = 0, AUTOSURVEY = 1, TRACKING = 2};
 
@@ -66,7 +67,18 @@ public:
             false:设置失败
     Others: None
     *************************************************/
-    bool setRangingMode();
+    bool setMode(opMode mode);
+
+    /*************************************************
+    Function:     setLocationConfig
+    Description:  设置定位模式的配置
+    Input:  None
+    Output: None
+    Return: true:获取成功
+            false:获取失败
+    Others: None
+    *************************************************/
+    bool setLocationConfig();
 
     /*************************************************
     Function:     getLocationConfig
@@ -79,16 +91,16 @@ public:
     *************************************************/
     bool getLocationConfig(LocationConfigInfo&);
 
-//    /*************************************************
-//    Function:     getLocationMapConfig
-//    Description:  获取定位地图的配置
-//    Input:  None
-//    Output: None
-//    Return: true:获取成功
-//            false:获取失败
-//    Others: None
-//    *************************************************/
-//    bool getLocationMapConfig(LocationConfigInfo&);
+    /*************************************************
+    Function:     getLocationMapConfig
+    Description:  获取定位地图的配置
+    Input:  None
+    Output: None
+    Return: true:获取成功
+            false:获取失败
+    Others: None
+    *************************************************/
+    bool getLocationMap(std::vector<UWBcommands::LocationMapEntries>&);
 
     /*************************************************
     Function:     setLocationTrackingMode
@@ -122,6 +134,28 @@ public:
     Others: None
     *************************************************/
     bool setLocationMode(locationModeType modeType);
+
+    /*************************************************
+    Function:     getLocationMode
+    Description:  获取p440定位模式
+    Input:  None
+    Output: None
+    Return: 0:Idle; 1:Autosurvey; 2:Tracking
+            -1:获取失败
+    Others: None
+    *************************************************/
+    int getLocationMode(void);
+
+    /*************************************************
+    Function:     setLocationMap
+    Description:  定位铆点设置
+    Input:  modeType：定位模式三种状态中的一种
+    Output: None
+    Return: true:设置成功
+            false:设置失败
+    Others: None
+    *************************************************/
+    bool setLocationMap(const std::vector<int>& x, std::vector<int>& y, std::vector<int>& z);
 
     /*************************************************
     Function:     getTrackingInfo

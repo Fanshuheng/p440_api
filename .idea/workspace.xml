@@ -12,62 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edb23a31-d22d-4b7d-a7ca-ba4c3da7f095" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LocationInfo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BIRL_UWB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BIRL_UWB.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BIRL_UWB.h" beforeDir="false" afterPath="$PROJECT_DIR$/BIRL_UWB.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Command.h" beforeDir="false" afterPath="$PROJECT_DIR$/Command.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/includes_C.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/includes_CXX.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/includes_C.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/includes_CXX.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/linklibs.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/objects1.rsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UWB_config.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/p440_api.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/p440_api" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/p440_api" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcm.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcmIf.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcmIf.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcmSampleApp.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/usb.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,6 +31,25 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/Command.h">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1759">
+                    <caret line="284" column="48" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
@@ -94,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BIRL_UWB.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="79" column="48" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+            <state relative-caret-position="2774">
+              <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
               <folding>
                 <element signature="e#83#100#0" expanded="true" />
               </folding>
@@ -103,11 +75,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LocationInfo.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="342">
+              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+              <folding>
+                <element signature="e#132#450#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="3686">
+              <caret line="194" column="88" selection-start-line="194" selection-start-column="88" selection-end-line="194" selection-end-column="88" />
               <folding>
                 <element signature="e#35#56#0" expanded="true" />
               </folding>
@@ -134,19 +109,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BIRL_UWB.cpp">
+        <entry file="file:///usr/include/c++/5/ext/string_conversions.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6745">
-              <caret line="355" column="37" selection-start-line="355" selection-start-column="37" selection-end-line="355" selection-end-column="37" />
+            <state relative-caret-position="1216">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Command.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BIRL_UWB.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2413">
-              <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
+            <state relative-caret-position="821">
+              <caret line="172" selection-start-line="172" selection-end-line="319" />
+              <folding>
+                <element signature="e#2158#3712#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,6 +143,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>todo</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -174,19 +157,19 @@
         <option value="$PROJECT_DIR$/usb.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/LocationInfo.h" />
+        <option value="$PROJECT_DIR$/BIRL_UWB.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Command.h" />
         <option value="$PROJECT_DIR$/BIRL_UWB.cpp" />
-        <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/BIRL_UWB.h" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="553" />
-    <option name="y" value="118" />
-    <option name="width" value="1851" />
-    <option name="height" value="1048" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="48" />
+    <option name="y" value="272" />
+    <option name="width" value="1847" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectId" id="1b8S3eg4C2O5USlwTTtY5DwWW7G" />
   <component name="ProjectView">
@@ -218,6 +201,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -274,23 +258,28 @@
       <workItem from="1588074466412" duration="4151000" />
       <workItem from="1588081318972" duration="2186000" />
       <workItem from="1588086493841" duration="36000" />
+      <workItem from="1588122504687" duration="9109000" />
+      <workItem from="1588140176645" duration="12372000" />
+      <workItem from="1588157750877" duration="5177000" />
+      <workItem from="1588163821119" duration="167000" />
+      <workItem from="1588164005487" duration="1734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8043000" />
+    <option name="totallyTimeSpent" value="36602000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="553" y="118" width="1851" height="1048" extended-state="0" />
+    <frame x="67" y="-4" width="1853" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26094183" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27780852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34263393" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39914164" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35515022" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39914164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -330,33 +319,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>69</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>150</line>
+          <line>151</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>104</line>
-          <option name="timeStamp" value="103" />
+          <line>105</line>
+          <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>91</line>
-          <option name="timeStamp" value="104" />
+          <line>536</line>
+          <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>66</line>
-          <option name="timeStamp" value="105" />
+          <line>347</line>
+          <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/BIRL_UWB.cpp</url>
-          <line>118</line>
-          <option name="timeStamp" value="106" />
+          <line>334</line>
+          <option name="timeStamp" value="142" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -372,6 +356,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BIRL_UWB.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2774">
+          <caret line="146" column="28" selection-start-line="146" selection-start-column="28" selection-end-line="146" selection-end-column="28" />
+          <folding>
+            <element signature="e#83#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/usb.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="836">
@@ -381,45 +375,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="3686">
+          <caret line="194" column="88" selection-start-line="194" selection-start-column="88" selection-end-line="194" selection-end-column="88" />
           <folding>
             <element signature="e#35#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BIRL_UWB.cpp">
+    <entry file="file:///usr/include/c++/5/ext/string_conversions.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6745">
-          <caret line="355" column="37" selection-start-line="355" selection-start-column="37" selection-end-line="355" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Command.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2413">
-          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
+        <state relative-caret-position="1216">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usb.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BIRL_UWB.h">
+    <entry file="file://$PROJECT_DIR$/LocationInfo.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="79" column="48" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+        <state relative-caret-position="342">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding>
-            <element signature="e#83#100#0" expanded="true" />
+            <element signature="e#132#450#1" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LocationInfo.h">
+    <entry file="file://$PROJECT_DIR$/Command.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="1759">
+          <caret line="284" column="48" selection-start-line="284" selection-start-column="48" selection-end-line="284" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BIRL_UWB.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="821">
+          <caret line="172" selection-start-line="172" selection-end-line="319" />
+          <folding>
+            <element signature="e#2158#3712#0" />
+          </folding>
         </state>
       </provider>
     </entry>

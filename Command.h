@@ -18,16 +18,22 @@ typedef	long long				rcm_int64_t;
 typedef	unsigned long long		rcm_uint64_t;
 
 ///command type
-#define LOC_SET_CONFIG_REQUEST      (0x5001)
-#define LOC_SET_CONFIG_CONFIRM      (0x5101)
-#define LOC_GET_CONFIG_REQUEST      (0x5002)  //先不写
-#define LOC_GET_CONFIG_CONFIRM      (0x5102)  //先不写
-#define LOC_SET_MODE_REQUEST        (0x5003)
-#define LOC_SET_MODE_CONFIRM        (0x5103)
-#define LOC_GET_MODE_REQUEST        (0x5004)
-#define LOC_GET_MODE_CONFIRM        (0x5104)
-#define LOC_ECHOED_LOCATION_INFO    (0x5202)
-#define LOC_ECHOED_LOCATION_EX_INFO (0x5203)
+#define LOC_SET_CONFIG_REQUEST       (0x5001)
+#define LOC_SET_CONFIG_CONFIRM       (0x5101)
+#define LOC_GET_CONFIG_REQUEST       (0x5002)
+#define LOC_GET_CONFIG_CONFIRM       (0x5102)
+#define LOC_SET_MODE_REQUEST         (0x5003)
+#define LOC_SET_MODE_CONFIRM         (0x5103)
+#define LOC_GET_MODE_REQUEST         (0x5004)
+#define LOC_GET_MODE_CONFIRM         (0x5104)
+#define LOC_ECHOED_LOCATION_INFO     (0x5202)
+#define LOC_ECHOED_LOCATION_EX_INFO  (0x5203)
+#define LOC_SET_LOCATION_MAP_REQUEST (0x5005)
+#define LOC_SET_LOCATION_MAP_CONFIRM (0x5105)
+#define LOC_GET_LOCATION_MAP_REQUEST (0x5006)
+#define LOC_GET_LOCATION_MAP_CONFIRM (0x5106)
+#define LOC_LOCATION_INFO            (0x5201)
+
 ///others
 #define RCM_MAX_SCAN_SAMPLES	    (350)
 
@@ -42,6 +48,7 @@ typedef union
 namespace UWBcommands{
 
     ///location part
+
     struct RequestLocationSetConfig{
 
         rcm_uint16_t msgType = LOC_SET_CONFIG_REQUEST;
@@ -129,6 +136,7 @@ namespace UWBcommands{
 
     };
 
+
     struct RequestLocationSetMode{
 
         rcm_uint16_t msgType = LOC_SET_MODE_REQUEST;
@@ -177,6 +185,78 @@ namespace UWBcommands{
         rcm_uint16_t reserved4 = 0;
     };
 
+    struct LocationMapEntries{
+
+        rcm_uint32_t nodeID;
+
+        rcm_uint8_t nodeType;
+
+        rcm_uint8_t reserved2 = 0;
+
+        rcm_uint8_t flags;
+
+        rcm_uint8_t reserved4 = 0;
+
+        rcm_uint16_t reserverd5 = 0;
+
+        rcm_uint16_t beaconInterval;
+
+        rcm_int32_t x;
+
+        rcm_int32_t y;
+
+        rcm_int32_t z;
+
+    };
+
+    struct RequestSetLocationMap{
+
+        rcm_uint16_t msgType = LOC_SET_LOCATION_MAP_REQUEST;
+
+        rcm_uint16_t messageId;
+
+        rcm_uint8_t broadcastFlag;
+
+        rcm_uint8_t numberOfEntries;
+
+        rcm_uint8_t persistFlag;
+
+    };
+
+    struct ConfirmSetLocationMap{
+
+        rcm_uint16_t msgType = LOC_GET_LOCATION_MAP_CONFIRM;
+
+        rcm_uint16_t messageID;
+
+        rcm_uint32_t status;
+
+    };
+
+    struct RequestGetLocationMap{
+
+        rcm_uint16_t msgType = LOC_GET_LOCATION_MAP_REQUEST;
+
+        rcm_uint16_t messageId;
+
+    };
+
+    struct ConfirmGetLocationMap{
+
+        rcm_uint16_t msgType = LOC_GET_LOCATION_MAP_CONFIRM;
+
+        rcm_uint16_t messageId;
+
+        rcm_uint8_t numberLocations;
+
+        rcm_uint8_t reserverd3 = 0;
+
+        rcm_uint16_t reserved4 = 0;
+
+        rcm_uint32_t status;
+
+    };
+
     struct InfoLocationEchoed{
 
         rcm_uint16_t msgType = LOC_ECHOED_LOCATION_INFO;
@@ -198,6 +278,47 @@ namespace UWBcommands{
         rcm_uint8_t solverStage;
 
         rcm_uint8_t solverErrorCode;
+    };
+
+    struct InfoLocation{
+
+        rcm_uint16_t msgType = LOC_LOCATION_INFO;
+
+        rcm_uint16_t msgId;
+
+        rcm_uint32_t nodeID;
+
+        rcm_uint8_t nodeTYpe;
+
+        rcm_uint8_t solverStage;
+
+        rcm_uint8_t solverErrorCode;
+
+        rcm_uint8_t reserved6;
+
+        rcm_uint16_t reserved7;
+
+        rcm_uint16_t GDOP;
+
+        rcm_uint32_t timeStamp;
+
+        rcm_int32_t x;
+
+        rcm_int32_t y;
+
+        rcm_int32_t z;
+
+        rcm_uint16_t x_variance;
+
+        rcm_uint16_t y_variance;
+
+        rcm_uint16_t z_variance;
+
+        rcm_int16_t x_y_cov;
+
+        rcm_int16_t x_z_cov;
+
+        rcm_int16_t y_z_cov;
     };
 
     struct InfoLocationEchoedEx{

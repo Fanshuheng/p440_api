@@ -1,0 +1,6 @@
+#,Node  ID,Type,Beacon Rate (ms),Send ELRs,Send ELLs,X (mm),Y (mm),Z (mm)
+0,100,Origin,1000,0,None,0,0,1734
+1,101,+X Axis,1000,0,None,1654,0,2555
+2,102,+Y Axis,1000,0,None,-921,2129,561
+3,103,Z Axis,1000,0,None,962,2791,977
+4,104,Mobile,1000,1,ELLEX,2500,2500,900

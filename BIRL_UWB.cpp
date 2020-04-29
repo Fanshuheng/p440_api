@@ -4,7 +4,7 @@
 
 #include "BIRL_UWB.h"
 
-bool BIRL_UWB::setRangingMode() {
+bool BIRL_UWB::setMode(opMode mode) {
     static UWBcommands::RequestSetOpmode request;
     static UWBcommands::ComfirmSetOpmode confirm;
     bool isOK = false;
@@ -12,7 +12,7 @@ bool BIRL_UWB::setRangingMode() {
 
     request.msgType = htons(request.msgType);
     request.msgId = htons(messageId++);
-    request.Mode = htonl(0);
+    request.Mode = htonl(mode);
 
     usb_->rcmIfFlush();
 
@@ -83,6 +83,7 @@ bool BIRL_UWB::getTrackingInfo(LocationInfo &info) {
 //    rcmIfFlush();
 
     static UWBcommands::InfoLocationEchoed echoed_info;
+//    static UWBcommands::InfoLocationEchoed echoed_info;
     bool isOK = false;
 
     //get echoed info
@@ -320,11 +321,10 @@ int BIRL_UWB::getRange(unsigned id) {
 bool BIRL_UWB::getLocationConfig(LocationConfigInfo& info) {
     static UWBcommands::RequestLocationGetConfig request;
     static UWBcommands::ConfirmLocationGetConfig confirm;
-    bool isOK = false;
     int numBytes;
 
     request.msgType = htons(LOC_GET_CONFIG_REQUEST);
-    request.msgId =  htons(messageId);
+    request.msgId =  htons(messageId++);
 
     // make sure no pending messages
     usb_->rcmIfFlush();
@@ -354,10 +354,190 @@ bool BIRL_UWB::getLocationConfig(LocationConfigInfo& info) {
             info.solverMaxREE = confirm.solverMaxREE;
             info.bootMode = confirm.bootMode;
             info.flag = confirm.flag;
-            isOK = true;
+            return true;
         }
 
     }
-    return isOK;
+    return false;
 
+}
+
+bool BIRL_UWB::setLocationConfig() {
+    static UWBcommands::RequestLocationSetConfig request;
+    static UWBcommands::ConfirmLocationSetConfig confirm;
+
+    int numBytes;
+    request.msgType = htons(LOC_SET_CONFIG_REQUEST);
+    request.msgId = htons(messageId++);
+    request.flag = htons(0b0011101000010001);//0 0 11 10 1 0 0 0 0 1 00 01
+    request.bootMode = 0;
+
+    // make sure no pending messages
+    usb_->rcmIfFlush();
+    usb_->rcmIfSendPacket(&request, sizeof(request));
+    numBytes = usb_->rcmIfGetPacket(&confirm, sizeof(confirm));
+
+    if (numBytes == sizeof(confirm))
+    {
+        // Handle byte ordering
+        confirm.msgType = ntohs(confirm.msgType);
+        confirm.status = ntohl(confirm.status);
+
+        // is this the correct message type and is status good?
+        if (confirm.msgType == LOC_GET_CONFIG_CONFIRM &&
+            confirm.status == OK){
+            return true;
+        }
+
+    }
+    return false;
+}
+
+bool BIRL_UWB::getLocationMap(std::vector<UWBcommands::LocationMapEntries> &map){
+    static UWBcommands::RequestGetLocationMap request;
+    static UWBcommands::ConfirmGetLocationMap confirm;
+    static UWBcommands::LocationMapEntries entry;
+
+    int numBytes;
+
+    request.msgType = htons(LOC_GET_LOCATION_MAP_REQUEST);
+    request.messageId = htons(messageId++);
+
+    // make sure no pending messages
+    usb_->rcmIfFlush();
+    usb_->rcmIfSendPacket(&request, sizeof(request));
+    numBytes = usb_->rcmIfGetPacket(&confirm, sizeof(confirm));
+
+    //check if what I get is what I want to get
+    if (numBytes == sizeof(confirm)) {
+        // Handle byte ordering
+        confirm.msgType = ntohs(confirm.msgType);
+        confirm.messageId = ntohs(confirm.messageId);
+        confirm.status = ntohl(confirm.status);
+        if (confirm.msgType == LOC_GET_LOCATION_MAP_CONFIRM &&
+            confirm.status == OK) {
+            while (confirm.numberLocations) {
+                numBytes = usb_->rcmIfGetPacket(&entry, sizeof(entry));
+                if (numBytes == sizeof(entry)) {
+                    entry.nodeID = ntohl(entry.nodeID);
+                    entry.beaconInterval = ntohs(entry.beaconInterval);
+                    entry.z = ntohl(entry.z);
+                    entry.y = ntohl(entry.y);
+                    entry.x = ntohl(entry.x);
+
+                    map.push_back(entry);
+
+                    confirm.numberLocations--;
+                } else return false;
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+bool BIRL_UWB::setLocationMap(const std::vector<int> &x, std::vector<int> &y, std::vector<int> &z) {
+    static UWBcommands::RequestSetLocationMap request;
+    static UWBcommands::ConfirmSetLocationMap confirm;
+    static UWBcommands::LocationMapEntries entry;
+
+    int numBytes;
+    int node_base = 100;  //ID of the first node
+    auto num_of_entries = x.size();
+
+    request.msgType = htons(LOC_SET_LOCATION_MAP_REQUEST);
+    request.messageId = htons(messageId);
+    request.broadcastFlag = 1;
+    request.numberOfEntries = 5;
+    request.persistFlag = 0;
+
+    usb_->rcmIfFlush();
+    usb_->rcmIfSendPacket(&request, sizeof(request));
+    while(num_of_entries){
+        switch(node_base){
+            case 100:{
+                entry.nodeType = 2;
+                break;
+            }
+            case 101:{
+                entry.nodeType = 3;
+                break;
+            }
+            case 102:{
+                entry.nodeType = 5;
+                break;
+            }
+            case 103:{
+                entry.nodeType = 7;
+                break;
+            }
+            case 104:{
+                entry.nodeType = 0;
+                break;
+            }
+            default:break;
+        }
+        entry.nodeID = htonl(node_base++);
+
+        //@todo:flags
+        // 1 : ELL – the Mobile will send the last position computed on its next range request;
+        // 2 : ELLEX – the Mobile will send the last position
+        //     along with the variance and covariance
+        //     information in its next range request. Essentially
+        //     includes the same information as the Location Info message
+        entry.flags = 1;
+
+        //@todo:beaconInterval
+        //0: Automatic Congestion Control (ACC)
+        entry.beaconInterval = 0;
+
+        auto i = x.size() - num_of_entries;
+        entry.x = x[i];
+        entry.y = y[i];
+        entry.z = z[i];
+        num_of_entries--;
+
+        usb_->rcmIfSendPacket(&entry, sizeof(entry));
+    }
+    numBytes = usb_->rcmIfGetPacket(&confirm, sizeof(confirm));
+
+    //check if what i get is what i want to get
+    if (numBytes == sizeof(confirm)) {
+        // Handle byte ordering
+        confirm.msgType = ntohs(confirm.msgType);
+        confirm.messageID = ntohs(confirm.messageID);
+        confirm.status = ntohl(confirm.status);
+        if(confirm.status == 0 && confirm.msgType == LOC_SET_LOCATION_MAP_CONFIRM)
+            return true;
+    }
+    return false;
+}
+
+int BIRL_UWB::getLocationMode(void) {
+    static UWBcommands::RequestLocationGetMode request;
+    static UWBcommands::ConfirmLocationGetMode confirm;
+
+    int numBytes;
+
+    request.msgType = htons(LOC_GET_MODE_REQUEST);
+    request.msgId =  htons(messageId++);
+
+    // make sure no pending messages
+    usb_->rcmIfFlush();
+    usb_->rcmIfSendPacket(&request, sizeof(request));
+    numBytes = usb_->rcmIfGetPacket(&confirm, sizeof(confirm));
+    //check if what i get is what i want to get
+
+    if (numBytes == sizeof(confirm))
+    {
+        // Handle byte ordering
+        confirm.msgType = ntohs(confirm.msgType);
+
+        // is this the correct message type and is status good?
+        if (confirm.msgType == LOC_GET_MODE_CONFIRM){
+            return confirm.mode;
+        }
+
+    }
+    return -1;
 }
