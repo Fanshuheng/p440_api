@@ -44,7 +44,6 @@ bool BIRL_UWB::setLocationTrackingMode(){
 bool BIRL_UWB::setLocationMode(locationModeType modeType) {
     static UWBcommands::RequestLocationSetMode request;
     static UWBcommands::ConfirmLocationSetMode confirm;
-    bool isOK = false;
     int numBytes;
 
     request.msgType = htons(request.msgType);
@@ -69,29 +68,20 @@ bool BIRL_UWB::setLocationMode(locationModeType modeType) {
         // is this the correct message type and is status good?
         if (confirm.msgType == LOC_SET_MODE_CONFIRM &&
             confirm.status == OK)
-            isOK = true;
+            return true;
     }
-    return isOK;
+    return false;
 }
 
 bool BIRL_UWB::getTrackingInfo(LocationInfo &info) {
 
-//    //clear pending message
-//    /*@todo:I don't know whether it would clear the latest location info and just wait for next info ,
-//      @todo:it might cause some unexceptable results if call this function here
-//    */
-//    rcmIfFlush();
-
     static UWBcommands::InfoLocationEchoed echoed_info;
-//    static UWBcommands::InfoLocationEchoed echoed_info;
-    bool isOK = false;
 
-    //get echoed info
-    int numBytes = usb_->rcmIfGetPacket(&echoed_info, sizeof(echoed_info));
+    int numBytes;
 
-    //check if what i get is what i want to get
-    if (numBytes == sizeof(info))
-    {
+    usb_->rcmIfFlush();
+
+    if ((numBytes = usb_->rcmIfGetPacket(&echoed_info, sizeof(echoed_info))) > 0) {
         // Handle byte ordering
         echoed_info.msgType = ntohs(echoed_info.msgType);
         echoed_info.remoteTimestamp = ntohl(echoed_info.remoteTimestamp);
@@ -99,34 +89,30 @@ bool BIRL_UWB::getTrackingInfo(LocationInfo &info) {
         echoed_info.y = ntohl(echoed_info.y);
         echoed_info.z = ntohl(echoed_info.z);
         echoed_info.nodeID = ntohl(echoed_info.nodeID);
-
-        // is this the correct message type and is status good?
-        bool t1 = echoed_info.msgType == LOC_ECHOED_LOCATION_INFO;
-        bool t2 = echoed_info.solverErrorCode == OK;
-        if (echoed_info.msgType == LOC_ECHOED_LOCATION_INFO &&
-            echoed_info.solverErrorCode == OK){
-            isOK = true;
+        if (echoed_info.msgType != LOC_ECHOED_LOCATION_INFO ||
+            echoed_info.solverErrorCode != OK)
+            return false;
+        else {
             info.x = echoed_info.x;
             info.y = echoed_info.y;
             info.z = echoed_info.z;
             info.node_ID = echoed_info.nodeID;
             info.time_stamp = echoed_info.remoteTimestamp;
+            return true;
         }
-
     }
-    return isOK;
+    return false;
 }
 
 bool BIRL_UWB::getTrackingInfoEX(LocationInfoEX &info) {
 
-//    //clear pending message
-//    /*@todo:I don't know whether it would clear the latest location info and just wait for next info ,
-//      @todo:it might cause some unexceptable results if call this function here
-//    */
-//    rcmIfFlush();
-
     static UWBcommands::InfoLocationEchoedEx echoed_info;
-    bool isOK = false;
+
+    //    //clear pending message
+    //    /*@todo:I don't know whether it would clear the latest location info and just wait for next info ,
+    //      @todo:it might cause some unexceptable results if call this function here
+    //    */
+    usb_->rcmIfFlush();
 
     //get echoed info
     int numBytes = usb_->rcmIfGetPacket(&echoed_info, sizeof(echoed_info));
@@ -151,7 +137,6 @@ bool BIRL_UWB::getTrackingInfoEX(LocationInfoEX &info) {
         // is this the correct message type and is status good?
         if (echoed_info.msgType == LOC_ECHOED_LOCATION_EX_INFO &&
             echoed_info.solverErrorCode == OK){
-            isOK = true;
             info.x = echoed_info.x;
             info.y = echoed_info.y;
             info.z = echoed_info.z;
@@ -163,11 +148,10 @@ bool BIRL_UWB::getTrackingInfoEX(LocationInfoEX &info) {
             info.y_z_cov = echoed_info.y_z_cov;
             info.time_stamp = echoed_info.timeStamp;
             info.node_ID = echoed_info.nodeID;
-            isOK = true;
+            return true;
         }
-
     }
-    return isOK;
+    return false;
 }
 
 int BIRL_UWB::getRange(unsigned id) {
@@ -447,7 +431,7 @@ bool BIRL_UWB::setLocationMap(const std::vector<int> &x, std::vector<int> &y, st
 
     request.msgType = htons(LOC_SET_LOCATION_MAP_REQUEST);
     request.messageId = htons(messageId);
-    request.broadcastFlag = 1;
+    request.broadcastFlag = 0;
     request.numberOfEntries = 5;
     request.persistFlag = 0;
 

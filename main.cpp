@@ -188,7 +188,7 @@ int main(int argc, char *argv[]) {
             case 8:{
                 if(!uwb->setLocationMap(x, y, z)){
                     std::cout << "Fail to set location map config.\n";
-                }else std::cout << "Set location mao config OK.\n";
+                }else std::cout << "Set location map config OK.\n";
                 break;
             }
             case 9:{
