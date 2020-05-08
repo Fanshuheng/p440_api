@@ -5,6 +5,7 @@ CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../BIRL_UWB.cpp
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../BIRL_UWB.h
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../Command.h
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../LocationInfo.h
+CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../RangingInfo.h
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../hostInterfaceCommon.h
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../hostInterfaceRCM.h
 CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../usb.h
@@ -12,6 +13,7 @@ CMakeFiles/p440_api.dir/BIRL_UWB.cpp.o: ../usb.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../BIRL_UWB.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../Command.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../LocationInfo.h
+CMakeFiles/p440_api.dir/main.cpp.o: ../RangingInfo.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../hostInterfaceCommon.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../hostInterfaceRCM.h
 CMakeFiles/p440_api.dir/main.cpp.o: ../main.cpp

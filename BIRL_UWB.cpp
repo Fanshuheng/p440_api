@@ -51,7 +51,7 @@ bool BIRL_UWB::setLocationMode(locationModeType modeType) {
     request.mode = modeType;
     //@todo:0 means that only this node is modified. If you want to broadcast to other nodes, change to 1.
     //@todo: When you change it to 1, you should also think about another confirm package(LOC_OTA_MODE_CHANGE_INFO)
-    request.broadcastFlag = 0;
+    request.broadcastFlag = 1;
 
 
     usb_->rcmIfFlush();
@@ -79,7 +79,7 @@ bool BIRL_UWB::getTrackingInfo(LocationInfo &info) {
 
     int numBytes;
 
-    usb_->rcmIfFlush();
+//    usb_->rcmIfFlush();
 
     if ((numBytes = usb_->rcmIfGetPacket(&echoed_info, sizeof(echoed_info))) > 0) {
         // Handle byte ordering
@@ -154,7 +154,7 @@ bool BIRL_UWB::getTrackingInfoEX(LocationInfoEX &info) {
     return false;
 }
 
-int BIRL_UWB::getRange(unsigned id) {
+int BIRL_UWB::getRangeWithTarget(unsigned id) {
     static rcmMsg_SendRangeRequest request;
     static rcmMsg_SendRangeRequestConfirm confirm;
     static rcmMsg_FullRangeInfo rangeInfo;
@@ -346,15 +346,19 @@ bool BIRL_UWB::getLocationConfig(LocationConfigInfo& info) {
 
 }
 
-bool BIRL_UWB::setLocationConfig() {
+bool BIRL_UWB::setLocationConfig(echoedInfoType type) {
     static UWBcommands::RequestLocationSetConfig request;
     static UWBcommands::ConfirmLocationSetConfig confirm;
 
     int numBytes;
     request.msgType = htons(LOC_SET_CONFIG_REQUEST);
     request.msgId = htons(messageId++);
-    request.flag = htons(0b0011101000010001);//0 0 11 10 1 0 0 0 0 1 00 01
-    request.bootMode = 0;
+    //0001101000101001 :2d
+    //0011101000100001 :3d
+    if(type == ELL) request.flag = htons(0b0001101000010001);     //0 0 11 10 1 0 0 0 0 1 00 01
+    else if(type == ELR) request.flag = htons(0b0001101000101001);//0 0 11 10 1 0 0 0 1 0 00 01
+
+    request.bootMode = 0;  
 
     // make sure no pending messages
     usb_->rcmIfFlush();
@@ -368,7 +372,7 @@ bool BIRL_UWB::setLocationConfig() {
         confirm.status = ntohl(confirm.status);
 
         // is this the correct message type and is status good?
-        if (confirm.msgType == LOC_GET_CONFIG_CONFIRM &&
+        if (confirm.msgType == LOC_SET_CONFIG_CONFIRM &&
             confirm.status == OK){
             return true;
         }
@@ -524,4 +528,63 @@ int BIRL_UWB::getLocationMode(void) {
 
     }
     return -1;
+}
+
+bool BIRL_UWB::getELR(EchoedRangingInfo& info){
+
+    static UWBcommands::InfoELR echoed_info;
+
+    int numBytes;
+
+    usb_->rcmIfFlush();
+
+    if ((numBytes = usb_->rcmIfGetPacket(&echoed_info, sizeof(echoed_info))) > 0) {
+        // Handle byte ordering
+        echoed_info.msgType = ntohs(echoed_info.msgType);
+        echoed_info.msgId = ntohs(echoed_info.msgId);
+        echoed_info.requesterID = ntohl(echoed_info.requesterID);
+        echoed_info.responderID = ntohl(echoed_info.responderID);
+        echoed_info.PRM = ntohl(echoed_info.PRM);
+        echoed_info.PRMErrorEstimate = ntohs(echoed_info.PRMErrorEstimate);
+        echoed_info.LEDFlag = ntohs(echoed_info.LEDFlag);
+        echoed_info.timeStamp = ntohl(echoed_info.timeStamp);
+        if (echoed_info.msgType != RCM_ECHOED_RANGE_INFO)
+            return false;
+        else {
+            info.id_beacon = echoed_info.responderID;
+            info.id_tag = echoed_info.requesterID;
+            info.range = echoed_info.PRM;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool BIRL_UWB::getELRs(EchoedRangingInfos &infos) {
+    EchoedRangingInfo info;
+    int k = -1, error = -1;
+    auto end = std::chrono::system_clock::now();
+//    usb_->rcmIfFlush();
+    for(int i = 0; i < num_of_p440s_ - 1; i++){
+        auto start = std::chrono::system_clock::now();
+        while(1){
+            if(getELR(info)){
+                if( info.id_tag == ID_OF_FIRST_BEACON + num_of_p440s_ - 1 &&
+                    info.id_beacon == ID_OF_FIRST_BEACON + i )break;
+            }                else{
+                error = i;
+            }
+            k = i;
+            end = std::chrono::system_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+            if(duration > 500)break;
+        }
+        if( info.id_tag == ID_OF_FIRST_BEACON + num_of_p440s_ - 1 &&
+            info.id_beacon == ID_OF_FIRST_BEACON + i )
+            infos.infos.push_back(info);
+        else {
+            return false;
+        }
+    }
+    return true;
 }

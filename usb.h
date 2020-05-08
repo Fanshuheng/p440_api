@@ -75,6 +75,7 @@ private:
     static std::shared_ptr<USB> instance_;  //for singleton pattern
 
     static const unsigned short crc16_tab[32*8];
+
 };
 
 #endif //USB_H

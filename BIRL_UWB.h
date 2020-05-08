@@ -19,15 +19,14 @@
 #include <fcntl.h>
 #include <termios.h>
 #include <vector>
+#include <chrono>
 
 #include "hostInterfaceCommon.h"
 #include "hostInterfaceRCM.h"
 #include "LocationInfo.h"
-
+#include "RangingInfo.h"
 #include "Command.h"
 #include "usb.h"
-
-
 
 class BIRL_UWB {
 public:
@@ -35,6 +34,8 @@ public:
     enum opMode {RANGING = 0, LOCATION = 6};
 
     enum locationModeType {IDLE = 0, AUTOSURVEY = 1, TRACKING = 2};
+
+    enum echoedInfoType {ELL = 0, ELR = 1};
 
     const int OK = 0, ERR = -1, DEFAULT_TIMEOUT_MS = 500;
 
@@ -58,6 +59,8 @@ public:
         return usb_->rcmIfInit(dev)==OK;
     }
 
+    void setNumOfP440s(int num){num_of_p440s_ = num;}
+
     /*************************************************
     Function:     setRangingMode
     Description:  将P440设置为测距模式
@@ -72,13 +75,15 @@ public:
     /*************************************************
     Function:     setLocationConfig
     Description:  设置定位模式的配置
-    Input:  None
+    Input:
+     type = ELL:发布ELL消息
+     type = ELR:发布ELR消息
     Output: None
     Return: true:获取成功
             false:获取失败
     Others: None
     *************************************************/
-    bool setLocationConfig();
+    bool setLocationConfig(echoedInfoType type);
 
     /*************************************************
     Function:     getLocationConfig
@@ -169,6 +174,21 @@ public:
     bool getTrackingInfo(LocationInfo& info);
 
     /*************************************************
+    Function:     getELRs
+    Description:  获取ELR信息（标签和基站间的测距信息）
+                  约定P440模块id号连续，标签是这些连续ID号中的最后一个
+    precondition: setNumOfP440s(int num > 0)(设置基站数量)
+                  setLocationMode()
+                  setLocationConfig(ELR)
+    Input:  info：测距信息结构体
+    Output: None
+    Return: true: 获取成功
+            false:获取失败
+    Others: None
+    *************************************************/
+    bool getELRs(EchoedRangingInfos& infos);
+
+    /*************************************************
     Function:     getTrackingInfoEX
     Description:  获取详细定位信息（带统计学信息）
     Input:  info：定位信息结构体
@@ -180,18 +200,7 @@ public:
     bool getTrackingInfoEX(LocationInfoEX& info);
 
     /*************************************************
-    Function:     getTrackingInfoEX
-    Description:  获取详细定位信息（带统计学信息）
-    Input:  info：定位信息结构体
-    Output: None
-    Return: true:获取成功
-            false:获取失败
-    Others: None
-    *************************************************/
-    bool getRangeInfo(unsigned id);
-
-    /*************************************************
-    Function:     getRange
+    Function:     getRangeWithTarget
     Description:  get range between this node and target node 'id'
     Input:  id: id of target node
     Output: None
@@ -199,9 +208,12 @@ public:
             -1 means failure
     Others: None
     *************************************************/
-    int getRange(unsigned id);
+    int getRangeWithTarget(unsigned id);
 
 private:
+    bool getELR(EchoedRangingInfo& info);  //called by getELRs
+
+    const int ID_OF_FIRST_BEACON = 100;
 
     int radioFd;
 
@@ -213,6 +225,7 @@ private:
 
     std::shared_ptr<USB> usb_;
 
+    int num_of_p440s_ = 0;
 };
 
 #endif //UWB_BIRL_UWB_H

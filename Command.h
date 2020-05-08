@@ -18,6 +18,8 @@ typedef	long long				rcm_int64_t;
 typedef	unsigned long long		rcm_uint64_t;
 
 ///command type
+#define RCM_ECHOED_RANGE_INFO        (0x0204)
+
 #define LOC_SET_CONFIG_REQUEST       (0x5001)
 #define LOC_SET_CONFIG_CONFIRM       (0x5101)
 #define LOC_GET_CONFIG_REQUEST       (0x5002)
@@ -48,6 +50,25 @@ typedef union
 namespace UWBcommands{
 
     ///location part
+
+    struct InfoELR{
+
+        rcm_uint16_t msgType = RCM_ECHOED_RANGE_INFO;
+
+        rcm_uint16_t msgId;
+
+        rcm_uint32_t requesterID;
+
+        rcm_uint32_t responderID;
+
+        rcm_uint32_t PRM;
+
+        rcm_uint16_t PRMErrorEstimate;
+
+        rcm_uint16_t LEDFlag;
+
+        rcm_uint32_t timeStamp;
+    };
 
     struct RequestLocationSetConfig{
 

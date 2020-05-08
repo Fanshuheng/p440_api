@@ -109,6 +109,8 @@ int main(int argc, char *argv[]) {
         std::cout << "8.set location map config(from the csv file).\n";
         std::cout << "9.set location mode.\n";
         std::cout << "10.get location mode.\n";
+        std::cout << "11.get all range.\n";
+        std::cout << "12.set ELR mode.\n";
         std::cout << "-1.quit\n";
 
         std::cin >> command;
@@ -116,7 +118,7 @@ int main(int argc, char *argv[]) {
             case 1:{
                 std::cout << "Target id:\n";
                 std::cin >> command;
-                int ret = uwb->getRange(command);
+                int ret = uwb->getRangeWithTarget(command);
                 if(ret == -1) std::cout << "Fail to get range of node "<< command << "\n";
                 else std::cout << "Range between this node and node " << command << " is:" << ret << "\n";
                 break;
@@ -192,7 +194,7 @@ int main(int argc, char *argv[]) {
                 break;
             }
             case 9:{
-                if( (!uwb->setMode(BIRL_UWB::LOCATION)) && (!uwb->setLocationConfig())){
+                if( (!uwb->setMode(BIRL_UWB::LOCATION)) && (!uwb->setLocationConfig(BIRL_UWB::ELL))){
                     std::cout << "Fail to set location mode.\n";
                 }else std::cout << "Set location mode OK.\n";
                 break;
@@ -204,14 +206,35 @@ int main(int argc, char *argv[]) {
                 }else std::cout << "Fail to get location mode.\n";
                 break;
             }
+            case 11:{
+                EchoedRangingInfos range_infos;
+                uwb->setNumOfP440s(4);
+                bool ok = uwb->getELRs(range_infos);
+                if(ok){
+                    for(int i = 0; i < range_infos.infos.size(); i++){
+                        std::cout << "Range info " << i <<"\n";
+                        std::cout << "Tag ID is : " << range_infos.infos[i].id_tag << "\n";
+                        std::cout << "Beacon ID is : " << range_infos.infos[i].id_beacon << "\n";
+                        std::cout << "Range data : " << range_infos.infos[i].range << "\n";
+                    }
+                }else std::cout << "Fail to get ELR.\n";
+                break;
+            }
+            case 12:{
+                uwb->setNumOfP440s(4);
+                bool ok = uwb->setLocationConfig(BIRL_UWB::ELR);
+                if(ok){
+                    std::cout << "Set ELR mode OK\n";
+                }else std::cout << "Fail to set ELR mode.\n";
+                break;
+            }
             case -1:{
                 std::cout << "Quit.";
                 break;
             }
             default:{
-                std::cout << "Please enter 1~5, or -1 to quit.\n";
+                std::cout << "Please enter 1~12, or -1 to quit.\n";
             }
-
         }
     }
     return 0;
